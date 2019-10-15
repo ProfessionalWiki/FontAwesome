@@ -1,0 +1,37 @@
+{
+	"name": "mediawiki/font-awesome",
+	"type": "mediawiki-extension",
+	"description": "Provides the FontAwesome icon font, CSS, and SVG framework in the wiki",
+	"keywords": [
+		"wiki",
+		"MediaWiki",
+		"extension"
+	],
+	"homepage": "https://www.mediawiki.org/wiki/Extension:FontAwesomme",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "Stephan Gambke",
+			"email": "s7eph4n@protonmail.com",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"wiki": "https://www.mediawiki.org/wiki/Extension:FontAwesome",
+		"forum": "https://www.mediawiki.org/wiki/Extension_talk:FontAwesome",
+		"source": "https://github.com/s7eph4n/FontAwesome",
+		"issues": "https://github.com/s7eph4n/FontAwesome/issues",
+		"irc": "irc://irc.freenode.org/mediawiki"
+	},
+	"require": {
+		"mediawiki/mediawiki": ">=1.31",
+		"php": ">=7.0",
+		"composer/installers": "1.*,>=1.0.1",
+		"mediawiki/scss": "^1.0"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.x-dev"
+		}
+	}
+}

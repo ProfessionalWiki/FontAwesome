@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "prebuild": "npm install",
+    "build:fontawesome": "mkdir -p res/fontawesome && cp -R node_modules/@fortawesome/fontawesome-free/scss node_modules/@fortawesome/fontawesome-free/webfonts node_modules/@fortawesome/fontawesome-free/LICENSE.txt res/fontawesome",
+    "build": "npm run build:fontawesome"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5"
+  },
+  "dependencies": {}
+}
