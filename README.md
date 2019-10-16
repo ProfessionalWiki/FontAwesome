@@ -30,7 +30,8 @@ installation directory. Run that command again to update the extension.
 
 (Alternatively you can download a tar ball or zip file from
 [GitHub](https://github.com/cmln/mw-font-awesome/releases/latest)
-and extract it into the `extensions` directory of your MediaWiki installation.)
+and extract it into the `extensions` directory of your MediaWiki installation.
+However, in that case you need to also install the [SCSS extension][mw-scss].)
 
 Then add the following line to your `LocalSettings.php`:
 ```php
@@ -59,5 +60,6 @@ The Font Awesome Free package is included in the extension. See its
 [license]: https://www.gnu.org/copyleft/gpl.html
 [font-awesome-license]: ./res/fontawesome/LICENSE.txt
 [mw-font-awesome]: https://www.mediawiki.org/wiki/Extension:FontAwesome
+[mw-scss]: https://github.com/cmln/mw-scss
 [font-awesome]: https://fontawesome.com/
 [composer]: https://getcomposer.org/

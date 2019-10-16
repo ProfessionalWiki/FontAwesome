@@ -8,6 +8,7 @@
 		"extension"
 	],
 	"homepage": "https://www.mediawiki.org/wiki/Extension:FontAwesomme",
+	"readme": "README.md",
 	"license": "GPL-3.0-or-later",
 	"authors": [
 		{
