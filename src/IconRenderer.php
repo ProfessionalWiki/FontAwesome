@@ -61,7 +61,8 @@ class IconRenderer {
 	 */
 	public function render( Parser $parser, PPFrame $frame, $args ): string {
 
-		$parser->getOutput()->addModuleStyles( [ 'ext.fontawesome.styles', $this->fontModule ] );
+		$modules = [ 'ext.fontawesome.styles', $this->fontModule ];
+		$parser->getOutput()->addModuleStyles( array_combine( $modules, $modules ) );
 
 		return Html::element( 'span', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
 	}
