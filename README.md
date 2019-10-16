@@ -3,8 +3,10 @@
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/font-awesome/v/stable)](https://packagist.org/packages/mediawiki/simple-batch-upload)
 [![Packagist download count](https://poser.pugx.org/mediawiki/font-awesome/downloads)](https://packagist.org/packages/mediawiki/simple-batch-upload)
 
-The [FontAwesome][mw-font-awesome] extension provides parser functions to insert
-FontAwesome icons into the wiki text.
+The [FontAwesome][mw-font-awesome] extension to MediaWiki provides parser
+functions to insert [Font Awesome Free][font-awesome] icons into the wiki text.
+
+Currently Font Awesome Free, version 5.11.2 is included.
 
 ## Requirements
 
@@ -16,7 +18,7 @@ FontAwesome icons into the wiki text.
 The recommended way to install this extension is by using [Composer][composer].
 Just add the following to the MediaWiki `composer.local.json` file and run
 `php composer.phar update mediawiki/font-awesome` from the MediaWiki
-installation directory.
+installation directory. Run that command again to update the extension.
 
 ```json
 {
@@ -51,6 +53,11 @@ For valid icon names see https://fontawesome.com/icons
 
 [GNU General Public License, Version 3][license] or later.
 
+The Font Awesome Free package is included in the extension. See its
+[license file][font-awesome-license] for details.
+
 [license]: https://www.gnu.org/copyleft/gpl.html
+[font-awesome-license]: ./res/fontawesome/LICENSE.txt
 [mw-font-awesome]: https://www.mediawiki.org/wiki/Extension:FontAwesome
+[font-awesome]: https://fontawesome.com/
 [composer]: https://getcomposer.org/

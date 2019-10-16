@@ -59,9 +59,9 @@ class SetupAfterCache {
 		$this->initResourceModuleTemplate();
 
 		$this->registerResourceModule( 'ext.fontawesome.styles', 'fontawesome.scss' );
-		$this->registerResourceModule( 'ext.fontawesome.styles.regular', 'fa-regular.scss' );
-		$this->registerResourceModule( 'ext.fontawesome.styles.solid', 'fa-solid.scss' );
-		$this->registerResourceModule( 'ext.fontawesome.styles.brands', 'fa-brands.scss' );
+		$this->registerResourceModule( 'ext.fontawesome.styles.regular', 'regular.scss' );
+		$this->registerResourceModule( 'ext.fontawesome.styles.solid', 'solid.scss' );
+		$this->registerResourceModule( 'ext.fontawesome.styles.brands', 'brands.scss' );
 
 		return true;
 	}
