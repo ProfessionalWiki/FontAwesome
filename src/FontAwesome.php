@@ -40,12 +40,7 @@ use Parser;
  */
 class FontAwesome {
 
-	/**
-	 * @throws \Exception
-	 */
 	public static function init() {
-
-		ExtensionRegistryHelper::singleton()->loadExtensionRecursive( 'Scss' );
 
 		$GLOBALS[ 'wgHooks' ][ 'SetupAfterCache' ][] = function (): bool {
 			$hook = new SetupAfterCache( $GLOBALS );
@@ -53,7 +48,6 @@ class FontAwesome {
 		};
 
 		$GLOBALS[ 'wgHooks' ][ 'ParserFirstCallInit' ][] = function ( Parser &$parser ): bool {
-
 			$hook = new ParserFirstCallInit( $parser );
 			return $hook->process();
 		};

@@ -26,8 +26,6 @@ declare( strict_types=1 );
 
 namespace FontAwesome\Hooks;
 
-use SCSS\ResourceLoaderSCSSModule;
-
 /**
  * @see https://www.mediawiki.org/wiki/Manual:Hooks/SetupAfterCache
  *
@@ -41,9 +39,7 @@ class SetupAfterCache {
 
 	/**
 	 * @param array $configuration
-	 *
 	 * @since  1.0
-	 *
 	 */
 	public function __construct( array &$configuration ) {
 		$this->configuration = &$configuration;
@@ -52,40 +48,30 @@ class SetupAfterCache {
 	/**
 	 * @return bool
 	 * @since  1.0
-	 *
 	 */
 	public function process(): bool {
 
 		$this->initResourceModuleTemplate();
 
-		$this->registerResourceModule( 'ext.fontawesome.styles', 'fontawesome.scss' );
-		$this->registerResourceModule( 'ext.fontawesome.styles.regular', 'regular.scss' );
-		$this->registerResourceModule( 'ext.fontawesome.styles.solid', 'solid.scss' );
-		$this->registerResourceModule( 'ext.fontawesome.styles.brands', 'brands.scss' );
+		$this->registerResourceModule( 'ext.fontawesome.styles', 'fontawesome.css' );
+		$this->registerResourceModule( 'ext.fontawesome.styles.regular', 'regular.css' );
+		$this->registerResourceModule( 'ext.fontawesome.styles.solid', 'solid.css' );
+		$this->registerResourceModule( 'ext.fontawesome.styles.brands', 'brands.css' );
 
 		return true;
 	}
 
 	private function initResourceModuleTemplate() {
 
-		$remoteBasePath = $this->configuration[ 'wgExtensionAssetsPath' ] . '/FontAwesome/res/fontawesome/scss/';
-		$remoteFontPath = $this->configuration[ 'wgExtensionAssetsPath' ] . '/FontAwesome/res/fontawesome/webfonts';
-		$localBasePath = $this->configuration[ 'wgExtensionDirectory' ] . '/FontAwesome/res/fontawesome/scss/';
+		$relativePath = '/FontAwesome/res/fontawesome-free/css/';
+		$remoteBasePath = $this->configuration[ 'wgExtensionAssetsPath' ] . $relativePath;
+		$localBasePath = $this->configuration[ 'wgExtensionDirectory' ] . $relativePath;
 
 		$this->rlModuleTemplate =
 			[
 				'localBasePath'  => $localBasePath,
 				'remoteBasePath' => $remoteBasePath,
-				'class'          => ResourceLoaderSCSSModule::class,
-				'position'       => 'top',
-				'variables'      => [
-					'fa-font-path' => $remoteFontPath,
-				],
-				'dependencies'   => [],
-				'cacheTriggers'  => [
-					'LocalSettings.php' => null,
-					'composer.lock'     => null,
-				],
+				//'position'       => 'top',
 			];
 	}
 
