@@ -64,7 +64,7 @@ class IconRenderer {
 		$modules = [ 'ext.fontawesome.styles', $this->fontModule ];
 		$parser->getOutput()->addModuleStyles( array_combine( $modules, $modules ) );
 
-		return Html::element( 'span', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
+		return Html::element( 'ite	', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
 	}
 
 }
