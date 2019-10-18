@@ -27,7 +27,6 @@ declare( strict_types=1 );
 
 namespace FontAwesome;
 
-use ExtensionRegistryHelper\ExtensionRegistryHelper;
 use FontAwesome\Hooks\ParserFirstCallInit;
 use FontAwesome\Hooks\SetupAfterCache;
 use Parser;
