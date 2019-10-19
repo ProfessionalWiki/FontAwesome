@@ -28,7 +28,8 @@ declare( strict_types=1 );
 namespace FontAwesome;
 
 use FontAwesome\Hooks\ParserFirstCallInit;
-use FontAwesome\Hooks\SetupAfterCache;
+use FontAwesome\Hooks\ResourceLoaderRegisterModules;
+use MediaWiki\MediaWikiServices;
 use Parser;
 
 /**
@@ -41,15 +42,16 @@ class FontAwesome {
 
 	public static function init() {
 
-		$GLOBALS[ 'wgHooks' ][ 'SetupAfterCache' ][] = function (): bool {
-			$hook = new SetupAfterCache( $GLOBALS );
-			return $hook->process();
-		};
-
 		$GLOBALS[ 'wgHooks' ][ 'ParserFirstCallInit' ][] = function ( Parser &$parser ): bool {
-			$hook = new ParserFirstCallInit( $parser );
+			$config = MediaWikiServices::getInstance()->getMainConfig();
+			$hook = new ParserFirstCallInit( $config, $parser );
 			return $hook->process();
 		};
 
+		$GLOBALS[ 'wgHooks' ][ 'ResourceLoaderRegisterModules' ][] = function( \ResourceLoader &$rl ): bool {
+			$config = MediaWikiServices::getInstance()->getMainConfig();
+			$hook = new ResourceLoaderRegisterModules( $config, $rl );
+			return $hook->process();
+		};
 	}
 }

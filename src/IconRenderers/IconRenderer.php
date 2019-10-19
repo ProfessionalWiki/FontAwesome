@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 /**
- * Aliases for the FontAwesome extension
+ * File containing the IconRenderer class
  *
  * @copyright 2019, Stephan Gambke
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
@@ -24,12 +24,26 @@ declare( strict_types=1 );
  * @ingroup FontAwesome
  */
 
-$magicWords = [];
+namespace FontAwesome\IconRenderers;
 
-/** English
+use Parser;
+use PPFrame;
+
+/**
+ * Class IconRenderer
+ *
+ * @since 1.0
+ * @ingroup FontAwesome
  */
-$magicWords['en'] = [
-	'far' => [ 0, 'far' ],
-	'fas' => [ 0, 'fas' ],
-	'fab' => [ 0, 'fab' ],
-];
+interface IconRenderer {
+
+	/**
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param string[] $args
+	 *
+	 * @return string
+	 */
+	public function render( Parser $parser, PPFrame $frame, array $args ): string;
+
+}

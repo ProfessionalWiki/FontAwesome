@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 /**
- * File containing the SetupAfterCache class
+ * File containing the JavascriptRenderer class
  *
  * @copyright 2019, Stephan Gambke
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
@@ -24,47 +24,67 @@ declare( strict_types=1 );
  * @ingroup FontAwesome
  */
 
-namespace FontAwesome;
+namespace FontAwesome\IconRenderers;
 
 use Html;
 use Parser;
 use PPFrame;
 
 /**
- * Class IconRenderer
+ * Class JavascriptRenderer
  *
  * @since 1.0
  * @ingroup FontAwesome
  */
-class IconRenderer {
+class JavascriptRenderer implements IconRenderer {
 
 	private $fontClass;
-	private $fontModule;
+	private $useScripts;
+
+	private $isModuleRegistered = false;
 
 	/**
 	 * IconRenderer constructor.
 	 *
 	 * @param string $fontClass
-	 * @param string $fontModule
 	 */
-	public function __construct( string $fontClass, string $fontModule ) {
+	public function __construct( string $fontClass ) {
 		$this->fontClass = $fontClass;
-		$this->fontModule = $fontModule;
+		$this->useScripts = true;
 	}
 
 	/**
 	 * @param Parser $parser
 	 * @param PPFrame $frame
-	 * @param $args
+	 * @param string[] $args
 	 *
 	 * @return string
 	 */
-	public function render( Parser $parser, PPFrame $frame, $args ): string {
+	public function render( Parser $parser, PPFrame $frame, array $args ): string {
 
-		$modules = [ 'ext.fontawesome.styles', $this->fontModule ];
-		$parser->getOutput()->addModuleStyles( array_combine( $modules, $modules ) );
+		$this->registerRlModule( $parser );
 
 		return Html::element( 'i', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
+	}
+
+	/**
+	 * @param Parser $parser
+	 */
+	private function registerRlModule( Parser $parser ) {
+
+		if ( $this->isModuleRegistered ) {
+			return;
+		}
+
+		$this->isModuleRegistered = true;
+		$parser->getOutput()->addModules( $this->getFontModules() );
+	}
+
+	/**
+	 * @return string[]
+	 */
+	private function getFontModules(): array {
+		return [ 'ext.fontawesome.' . $this->fontClass ];
 	}
 
 }

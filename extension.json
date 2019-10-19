@@ -20,6 +20,12 @@
 	"AutoloadNamespaces": {
 		"FontAwesome\\": "src/"
 	},
+	"config": {
+		"FaRenderMode": {
+			"value": "webfonts",
+			"description": "How should icons be rendered? (see https://fontawesome.com/how-to-use/on-the-web/other-topics/performance)"
+		}
+	},
 	"callback": "\\FontAwesome\\FontAwesome::init",
 	"manifest_version": 2
 }

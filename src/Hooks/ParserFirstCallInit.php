@@ -26,28 +26,36 @@ declare( strict_types=1 );
 
 namespace FontAwesome\Hooks;
 
-use FontAwesome\IconRenderer;
+use Config;
+use FontAwesome\IconRenderers\JavascriptRenderer;
+use FontAwesome\IconRenderers\WebfontRenderer;
 use Parser;
 
 /**
  * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
  *
- * @since 1.0
  * @ingroup FontAwesome
  */
 class ParserFirstCallInit {
-	/**
-	 * @var Parser
-	 */
+
+	private $configuration;
 	private $parser;
+
+	private static $parserFunctionToFontClass = [
+		'far' => 'far',
+		'fas' => 'fas',
+		'fab' => 'fab'
+	];
 
 	/**
 	 * ParserFirstCallInit constructor.
 	 *
+	 * @param Config $configuration
 	 * @param Parser $parser
 	 */
-	public function __construct( Parser &$parser ) {
+	public function __construct( Config $configuration, Parser $parser ) {
 		$this->parser = $parser;
+		$this->configuration = $configuration;
 	}
 
 	/**
@@ -57,23 +65,44 @@ class ParserFirstCallInit {
 	 */
 	public function process(): bool {
 
-		$this->registerIconRenderer( 'far', 'far', 'ext.fontawesome.styles.regular' );
-		$this->registerIconRenderer( 'fas', 'fas', 'ext.fontawesome.styles.solid' );
-		$this->registerIconRenderer( 'fab', 'fab', 'ext.fontawesome.styles.brands' );
+		$rendererClass = $this->getRendererClass();
+
+		foreach ( self::$parserFunctionToFontClass as $parserFunction => $fontClass ) {
+			$this->registerIconRenderer( $parserFunction, $fontClass, $rendererClass );
+		}
 
 		return true;
 	}
 
 	/**
-	 * @param string $fontClass
-	 * @param string $fontModule
 	 * @param string $parserFunctionName
+	 *
+	 * @param string $fontClass
+	 * @param string $rendererClass
 	 *
 	 * @throws \MWException
 	 */
-	private function registerIconRenderer( string $parserFunctionName, string $fontClass, string $fontModule ) {
-		$renderer = new IconRenderer( $fontClass, $fontModule );
+	private function registerIconRenderer( string $parserFunctionName, string $fontClass, string $rendererClass ) {
+
+		$renderer = new $rendererClass( $fontClass );
 		$this->parser->setFunctionHook( $parserFunctionName, [ $renderer, 'render' ], Parser::SFH_OBJECT_ARGS );
+	}
+
+	/**
+	 * @param string $fontClass
+	 *
+	 * @return JavascriptRenderer|WebfontRenderer
+	 * @throws \MWException
+	 */
+	private function getRendererClass(): string {
+		switch ( $this->configuration->get( 'FaRenderMode' ) ) {
+			case 'javascript':
+				return JavascriptRenderer::class;
+			case 'webfonts':
+				return WebfontRenderer::class;
+			default:
+				throw new \MWException( 'Unexpected Font Awesome render mode.' );
+		}
 	}
 
 }

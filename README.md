@@ -15,28 +15,44 @@ Currently Font Awesome Free, version 5.11.2 is included.
 
 ## Installation
 
-The recommended way to install this extension is by using [Composer][composer].
-Just add the following to the MediaWiki `composer.local.json` file and run
-`php composer.phar update mediawiki/font-awesome` from the MediaWiki
-installation directory. Run that command again to update the extension.
+### Using Composer
 
-```json
-{
-	"require": {
-		"mediawiki/font-awesome": "~1.0"
-	}
-}
-```
+This is the recommended way to install this extension. is by using [Composer][composer].
 
-(Alternatively you can download a tar ball or zip file from
-[GitHub](https://github.com/cmln/mw-font-awesome/releases/latest)
-and extract it into the `extensions` directory of your MediaWiki installation.
-However, in that case you need to also install the [SCSS extension][mw-scss].)
+1. `COMPOSER=composer.local.json php composer.phar require --no-update mediawiki/font-awesome ^1.0`
+2. `php composer.phar update --no-dev mediawiki/font-awesome`
 
-Then add the following line to your `LocalSettings.php`:
+To update the extension run the last command again.
+
+### Using a download from GitHub
+
+1. Download a tar ball or zip file from [GitHub](https://github.com/cmln/mw-font-awesome/releases/latest)
+2. Extract it into the `extensions` directory of your MediaWiki installation
+3. Rename the folder `mw-font-awesome-...` to `FontAwesome`
+
+To update the extension delete the `FontAwesome` folder completely and re-install.
+
+## Activation
+
+Add the following line to your `LocalSettings.php`:
 ```php
 wfLoadExtension( 'FontAwesome' );
 ```
+
+## Configuration
+
+There are two render modes available for FontAwesome icons:
+* **Web Fonts with CSS:** This implementation uses web fonts as the file format and relies on the browser to render icons as it would any custom font.
+* **SVG with JavaScript:** This implementation encodes icon data and the mechanism to display them in the browser in JavaScript code that the browser executes.
+
+The render mode can be selected by setting the variable `$wgFaRenderMode` in
+LocalSettings.php. Allowed values are: `webfonts` (default) and `javascript`.
+
+**Example:** `$wgFaRenderMode = 'javascript';`
+
+For a discussion of the advantages and drawbacks of the render modes see
+[Performance & Font Awesome](https://fontawesome.com/how-to-use/on-the-web/other-topics/performance)
+on fontawesome.com.
 
 ## Usage
 
@@ -48,7 +64,7 @@ This extension defines three parser functions:
 **Example:**
 `{{#fab:wikipedia-w}}` will insert the Wikipedia-W
 
-For valid icon names see https://fontawesome.com/icons
+For valid icon names see https://fontawesome.com/icons.
 
 ## License
 

@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 /**
- * File containing the IconRendererTest class
+ * File containing the WebfontRendererTest class
  *
  * @copyright 2019, Stephan Gambke
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
@@ -26,7 +26,8 @@ declare( strict_types=1 );
 
 namespace FontAwesome\Tests;
 
-use FontAwesome\IconRenderer;
+use FontAwesome\IconRenderers\IconRenderer;
+use FontAwesome\IconRenderers\WebfontRenderer;
 use Html;
 use Parser;
 use ParserOutput;
@@ -44,28 +45,35 @@ use PPFrame;
  *
  * @since 1.0
  */
-class IconRendererTest extends TestCase {
+class WebfontRendererTest extends TestCase {
 
 	public function testCanConstruct() {
 
-		$this->assertInstanceOf(
+		$renderer = new WebfontRenderer( 'foo' );
+
+		static::assertInstanceOf(
+			WebfontRenderer::class,
+			$renderer
+		);
+
+		static::assertInstanceOf(
 			IconRenderer::class,
-			new IconRenderer( 'foo', 'bar' )
+			$renderer
 		);
 	}
 
 	public function testRender() {
 
 		$fontClass = 'foo';
-		$fontModule = 'bar';
-		$icon = 'baz';
+		$icon1 = 'bar';
+		$icon2 = 'baz';
 
-		$modules = [ 'ext.fontawesome.styles', $fontModule ];
+		$modules = [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $fontClass ];
 
 		$output = $this->createMock( ParserOutput::class );
-		$output->expects($this->once())
+		$output->expects( static::once())
 			->method( 'addModuleStyles' )
-			->with( $this->equalTo( array_combine( $modules, $modules )) );
+			->with( static::equalTo( $modules ) );
 
 		$parser = $this->createMock( Parser::class );
 		$parser->method('getOutput' )
@@ -73,13 +81,21 @@ class IconRendererTest extends TestCase {
 
 		$frame = $this->createMock( PPFrame::class );
 		$frame->method( 'expand' )
-			->will( $this->returnArgument( 0 ) );
+			->will( static::returnArgument( 0 ) );
 
-		$renderer = new IconRenderer( $fontClass, $fontModule );
+		$renderer = new WebfontRenderer( $fontClass );
 
-		$expected = Html::element( 'i', [ 'class' => [ $fontClass, "fa-$icon" ] ] );
-		$observed = $renderer->render( $parser, $frame, [ $icon ] );
+		$expected = Html::element( 'i', [ 'class' => [ $fontClass, "fa-$icon1" ] ] );
+		$observed = $renderer->render( $parser, $frame, [ $icon1 ] );
 
-		$this->assertEquals( $expected, $observed );
+		static::assertEquals( $expected, $observed );
+
+		$expected = Html::element( 'i', [ 'class' => [ $fontClass, "fa-$icon2" ] ] );
+		$observed = $renderer->render( $parser, $frame, [ $icon2 ] );
+
+		static::assertEquals( $expected, $observed );
+
+
+
 	}
 }
