@@ -28,7 +28,6 @@ declare( strict_types=1 );
 namespace FontAwesome;
 
 use FontAwesome\Hooks\Hook;
-use FontAwesome\Hooks\ParserFirstCallInit;
 use MediaWiki\MediaWikiServices;
 
 /**
@@ -53,7 +52,7 @@ class FontAwesome {
 
 			$hookClass = "FontAwesome\\Hooks\\$hookName";
 
-			assert( $hookClass instanceof Hook );
+			assert( is_a( $hookClass, Hook::class, true ) );
 
 			$config = MediaWikiServices::getInstance()->getMainConfig();
 			$hook = new $hookClass( $config, ...$params );
