@@ -1,7 +1,7 @@
 # FontAwesome
 
-[![Latest Stable Version](https://poser.pugx.org/mediawiki/font-awesome/v/stable)](https://packagist.org/packages/mediawiki/simple-batch-upload)
-[![Packagist download count](https://poser.pugx.org/mediawiki/font-awesome/downloads)](https://packagist.org/packages/mediawiki/simple-batch-upload)
+[![Latest Stable Version](https://poser.pugx.org/mediawiki/font-awesome/v/stable)](https://packagist.org/packages/mediawiki/font-awesome)
+[![Packagist download count](https://poser.pugx.org/mediawiki/font-awesome/downloads)](https://packagist.org/packages/mediawiki/font-awesome)
 
 The [FontAwesome][mw-font-awesome] extension to MediaWiki provides parser
 functions to insert [Font Awesome Free][font-awesome] icons into the wiki text.
