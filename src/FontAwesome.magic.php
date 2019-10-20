@@ -1,5 +1,5 @@
 <?php
-declare( strict_types=1 );
+declare(strict_types=1);
 /**
  * Aliases for the FontAwesome extension
  *
@@ -24,11 +24,11 @@ declare( strict_types=1 );
  * @ingroup FontAwesome
  */
 
-$magicWords = [];
+$magicWords = [ ];
 
 /** English
  */
-$magicWords['en'] = [
+$magicWords[ 'en' ] = [
 	'far' => [ 0, 'far' ],
 	'fas' => [ 0, 'fas' ],
 	'fab' => [ 0, 'fab' ],

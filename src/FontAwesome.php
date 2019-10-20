@@ -1,5 +1,5 @@
 <?php
-declare( strict_types=1 );
+declare(strict_types=1);
 /**
  * The main file of the FontAwesome extension
  *
@@ -48,7 +48,7 @@ class FontAwesome {
 	 */
 	private static function registerHook( string $hookName ) {
 
-		$GLOBALS[ 'wgHooks' ][ $hookName ][ self::class ] = function ( ...$params ) use ( $hookName ): bool {
+		$GLOBALS[ 'wgHooks' ][ $hookName ][ self::class ] = function( ...$params ) use ( $hookName ): bool {
 
 			$hookClass = "FontAwesome\\Hooks\\$hookName";
 

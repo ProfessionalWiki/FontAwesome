@@ -1,5 +1,5 @@
 <?php
-declare( strict_types=1 );
+declare(strict_types=1);
 /**
  * File containing the ParserFirstCallInitTest class
  *
@@ -80,15 +80,15 @@ class ParserFirstCallInitTest extends TestCase {
 			->method( 'setFunctionHook' )
 			->with(
 
-				self::callback( function ( $id ) {
+				self::callback( function( $id ) {
 					return in_array( $id, [ 'far', 'fas', 'fab' ] );
 				} ), // string $id The magic word ID
 
-				self::callback( function ( $cb ) use ( $rendererClass ) {
+				self::callback( function( $cb ) use ( $rendererClass ) {
 					return is_callable( $cb ) && $cb[ 0 ] instanceof $rendererClass && $cb[ 1 ] === 'render';
 				} ), // callable $callback The callback function (and object) to use
 
-				self::callback( function ( $flags ) {
+				self::callback( function( $flags ) {
 					return is_int( $flags );
 				} ) // int $flags A combination of flags
 			);
