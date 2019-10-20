@@ -17,7 +17,9 @@ Currently Font Awesome Free, version 5.11.2 is included.
 
 ### Using Composer
 
-This is the recommended way to install this extension. is by using [Composer][composer].
+Using [Composer][composer] is the recommended way to install this extension.
+
+Run the following commands from the MediaWiki installation directory:
 
 1. `COMPOSER=composer.local.json php composer.phar require --no-update mediawiki/font-awesome ^1.0`
 2. `php composer.phar update --no-dev mediawiki/font-awesome`

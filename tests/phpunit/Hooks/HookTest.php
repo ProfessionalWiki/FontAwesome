@@ -71,7 +71,7 @@ class HookTest extends TestCase {
 		self::assertEquals( 'arg1', $observed );
 
 		$this->expectException( ConfigException::class );
-		$observed = $getConfigParam->invokeArgs( $testInstance, [ 'quuz' ] );
+		$getConfigParam->invokeArgs( $testInstance, [ 'quuz' ] );
 	}
 
 }

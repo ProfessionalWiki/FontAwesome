@@ -47,7 +47,6 @@ class ParserFirstCallInit extends Hook {
 	/**
 	 * @return bool
 	 * @throws MWException
-	 * @since  1.0
 	 */
 	public function process(): bool {
 
@@ -62,11 +61,8 @@ class ParserFirstCallInit extends Hook {
 
 	/**
 	 * @param string $parserFunctionName
-	 *
 	 * @param string $fontClass
 	 * @param string $rendererClass
-	 *
-	 * @throws MWException
 	 */
 	private function registerIconRenderer( string $parserFunctionName, string $fontClass, string $rendererClass ) {
 
@@ -77,7 +73,7 @@ class ParserFirstCallInit extends Hook {
 	/**
 	 * @param string $fontClass
 	 *
-	 * @return JavascriptRenderer|WebfontRenderer
+	 * @return string
 	 * @throws MWException
 	 */
 	private function getRendererClass(): string {
