@@ -45,9 +45,11 @@ function fetch_extension_from_composer() {
     COMPOSER_VERSION="dev-${SCRUTINIZER_PR_SOURCE_BRANCH}#${SCRUTINIZER_SHA1}"
   fi
 
-  php ~/build/tests/setup/fix-composer.php "$PACKAGE_NAME" "$COMPOSER_VERSION" "$SCRUTINIZER_PROJECT" <~/mw/composer.local.json-sample >~/mw/composer.local.json
-
   cd ~/mw
+
+  COMPOSER=composer.local.json composer require --no-update "$PACKAGE_NAME" "$COMPOSER_VERSION"
+  COMPOSER=composer.local.json composer config repositories.gh "vcs" "https://github.com${SCRUTINIZER_PROJECT:1}.git"
+
   composer update "$PACKAGE_NAME"
 }
 
