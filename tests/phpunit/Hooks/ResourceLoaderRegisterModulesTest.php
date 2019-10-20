@@ -1,5 +1,5 @@
 <?php
-declare( strict_types=1 );
+declare(strict_types=1);
 /**
  * File containing the ResourceLoaderRegisterModulesTest class
  *
@@ -91,7 +91,7 @@ class ResourceLoaderRegisterModulesTest extends TestCase {
 		$rl->expects( self::once() )
 			->method( 'register' )
 			->with(
-				self::callback( function ( $observed ) use ( $expected ) {
+				self::callback( function( $observed ) use ( $expected ) {
 					return $this->checkRlModules( $observed, $expected );
 				} ) // array of module info arrays keyed by name
 			);

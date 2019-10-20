@@ -1,5 +1,5 @@
 <?php
-declare( strict_types=1 );
+declare(strict_types=1);
 /**
  * File containing the ResourceLoaderRegisterModules class
  *
@@ -60,13 +60,13 @@ class ResourceLoaderRegisterModules extends Hook {
 	 */
 	public function process(): bool {
 
-		if ( ! array_key_exists( $this->getConfigParam( 'FaRenderMode' ), self::$moduleDefinitions )) {
+		if ( !array_key_exists( $this->getConfigParam( 'FaRenderMode' ), self::$moduleDefinitions ) ) {
 			throw new \MWException( 'Unexpected Font Awesome render mode.' );
 		}
 
 		$moduleDefinition = self::$moduleDefinitions[ $this->configuration->get( 'FaRenderMode' ) ];
 
-		$relativePath = $moduleDefinition[ 'relativePath'];
+		$relativePath = $moduleDefinition[ 'relativePath' ];
 		$localBasePath  = $this->getConfigParam( 'ExtensionDirectory' ) . $relativePath;
 		$remoteBasePath = $this->getConfigParam( 'ExtensionAssetsPath' ) . $relativePath;
 
