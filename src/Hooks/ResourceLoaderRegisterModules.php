@@ -26,16 +26,12 @@ declare( strict_types=1 );
 
 namespace FontAwesome\Hooks;
 
-
-use Config;
-use ResourceLoader;
-
 /**
  * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
  *
  * @ingroup FontAwesome
  */
-class ResourceLoaderRegisterModules {
+class ResourceLoaderRegisterModules extends Hook {
 
 	private static $moduleDefinitions = [
 		'javascript' => [
@@ -58,35 +54,21 @@ class ResourceLoaderRegisterModules {
 		],
 	];
 
-	private $configuration;
-	private $resourceLoader;
-
-	/**
-	 * ResourceLoaderRegisterModules constructor.
-	 *
-	 * @param Config $configuration
-	 * @param ResourceLoader $rl
-	 */
-	public function __construct( Config $configuration, ResourceLoader $rl ) {
-		$this->resourceLoader = $rl;
-		$this->configuration = $configuration;
-	}
-
 	/**
 	 * @return bool
 	 * @throws \MWException
 	 */
 	public function process(): bool {
 
-		if ( ! array_key_exists( $this->configuration->get( 'FaRenderMode' ), self::$moduleDefinitions )) {
+		if ( ! array_key_exists( $this->getConfigParam( 'FaRenderMode' ), self::$moduleDefinitions )) {
 			throw new \MWException( 'Unexpected Font Awesome render mode.' );
 		}
 
 		$moduleDefinition = self::$moduleDefinitions[ $this->configuration->get( 'FaRenderMode' ) ];
 
 		$relativePath = $moduleDefinition[ 'relativePath'];
-		$localBasePath  = $this->configuration->get( 'ExtensionDirectory' ) . $relativePath;
-		$remoteBasePath = $this->configuration->get( 'ExtensionAssetsPath' ) . $relativePath;
+		$localBasePath  = $this->getConfigParam( 'ExtensionDirectory' ) . $relativePath;
+		$remoteBasePath = $this->getConfigParam( 'ExtensionAssetsPath' ) . $relativePath;
 
 		$modules = $moduleDefinition[ 'modules' ];
 
@@ -95,7 +77,9 @@ class ResourceLoaderRegisterModules {
 			$modules[ $name ][ 'remoteBasePath' ] = $remoteBasePath;
 		}
 
-		$this->resourceLoader->register( $modules );
+		/** @var \ResourceLoader $rl */
+		$rl = $this->getHookParam( 0 );
+		$rl->register( $modules );
 
 		return true;
 	}

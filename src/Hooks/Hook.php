@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 /**
- * The main file of the FontAwesome extension
+ * File containing the Hook class
  *
  * @copyright 2019, Stephan Gambke
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
@@ -24,40 +24,48 @@ declare( strict_types=1 );
  * @ingroup FontAwesome
  */
 
+namespace FontAwesome\Hooks;
 
-namespace FontAwesome;
 
-use FontAwesome\Hooks\Hook;
-use FontAwesome\Hooks\ParserFirstCallInit;
-use MediaWiki\MediaWikiServices;
+use Config;
 
 /**
- * Class FontAwesome
- *
- * @since 1.0
  * @ingroup FontAwesome
  */
-class FontAwesome {
+abstract class Hook {
 
-	public static function init() {
-		self::registerHook( 'ParserFirstCallInit' );
-		self::registerHook( 'ResourceLoaderRegisterModules' );
+	protected $configuration;
+	protected $params;
+
+	/**
+	 * ResourceLoaderRegisterModules constructor.
+	 *
+	 * @param Config $configuration
+	 * @param array $params
+	 */
+	final public function __construct( Config $configuration, ...$params ) {
+		$this->configuration = $configuration;
+		$this->params = $params;
 	}
 
 	/**
-	 * @param string $hookName
+	 * @return bool
 	 */
-	private static function registerHook( string $hookName ) {
+	abstract public function process(): bool;
 
-		$GLOBALS[ 'wgHooks' ][ $hookName ][ self::class ] = function ( ...$params ) use ( $hookName ): bool {
+	/**
+	 * @param $key
+	 * @return mixed
+	 */
+	protected function getConfigParam( $key ) {
+		return $this->configuration->get( $key );
+	}
 
-			$hookClass = "FontAwesome\\Hooks\\$hookName";
-
-			assert( $hookClass instanceof Hook );
-
-			$config = MediaWikiServices::getInstance()->getMainConfig();
-			$hook = new $hookClass( $config, ...$params );
-			return $hook->process();
-		};
+	/**
+	 * @param int $index
+	 * @return mixed
+	 */
+	protected function getHookParam( int $index ) {
+		return $this->params[ $index ];
 	}
 }

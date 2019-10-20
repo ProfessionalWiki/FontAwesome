@@ -35,15 +35,13 @@ use PHPUnit\Framework\TestCase;
 use PPFrame;
 
 /**
- * @uses \FontAwesome\IconRenderer
+ * @uses \FontAwesome\IconRenderers\WebfontRenderer
  *
  * @ingroup Test
  * @ingroup FontAwesome
  *
  * @group extensions-font-awesome
  * @group mediawiki-databaseless
- *
- * @since 1.0
  */
 class WebfontRendererTest extends TestCase {
 
@@ -71,12 +69,12 @@ class WebfontRendererTest extends TestCase {
 		$modules = [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $fontClass ];
 
 		$output = $this->createMock( ParserOutput::class );
-		$output->expects( static::once())
+		$output->expects( static::once() )
 			->method( 'addModuleStyles' )
 			->with( static::equalTo( $modules ) );
 
 		$parser = $this->createMock( Parser::class );
-		$parser->method('getOutput' )
+		$parser->method( 'getOutput' )
 			->willReturn( $output );
 
 		$frame = $this->createMock( PPFrame::class );
@@ -94,7 +92,6 @@ class WebfontRendererTest extends TestCase {
 		$observed = $renderer->render( $parser, $frame, [ $icon2 ] );
 
 		static::assertEquals( $expected, $observed );
-
 
 
 	}

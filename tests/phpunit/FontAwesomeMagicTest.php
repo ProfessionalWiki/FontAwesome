@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 /**
- * The main file of the FontAwesome extension
+ * File containing the FontAwesomeMagicTest class
  *
  * @copyright 2019, Stephan Gambke
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
@@ -24,40 +24,29 @@ declare( strict_types=1 );
  * @ingroup FontAwesome
  */
 
+namespace FontAwesome\Tests;
 
-namespace FontAwesome;
-
-use FontAwesome\Hooks\Hook;
-use FontAwesome\Hooks\ParserFirstCallInit;
-use MediaWiki\MediaWikiServices;
+use PHPUnit\Framework\TestCase;
 
 /**
- * Class FontAwesome
- *
- * @since 1.0
+ * @ingroup Test
  * @ingroup FontAwesome
+ *
+ * @group extensions-font-awesome
+ * @group mediawiki-databaseless
  */
-class FontAwesome {
+class FontAwesomeMagicTest extends TestCase {
 
-	public static function init() {
-		self::registerHook( 'ParserFirstCallInit' );
-		self::registerHook( 'ResourceLoaderRegisterModules' );
+	public function testMagicWords() {
+
+		include __DIR__ . '/../../src/FontAwesome.magic.php';
+
+		self::assertTrue( is_array( $magicWords ) );
+
+		self::assertArrayHasKey( 'en', $magicWords );
+		self::assertArrayHasKey( 'far', $magicWords[ 'en' ] );
+		self::assertArrayHasKey( 'fas', $magicWords[ 'en' ] );
+		self::assertArrayHasKey( 'fab', $magicWords[ 'en' ] );
 	}
 
-	/**
-	 * @param string $hookName
-	 */
-	private static function registerHook( string $hookName ) {
-
-		$GLOBALS[ 'wgHooks' ][ $hookName ][ self::class ] = function ( ...$params ) use ( $hookName ): bool {
-
-			$hookClass = "FontAwesome\\Hooks\\$hookName";
-
-			assert( $hookClass instanceof Hook );
-
-			$config = MediaWikiServices::getInstance()->getMainConfig();
-			$hook = new $hookClass( $config, ...$params );
-			return $hook->process();
-		};
-	}
 }
