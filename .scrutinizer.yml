@@ -36,19 +36,19 @@ build:
             environment:
                 php: 7.1
                 variables:
-                    MW: 1.31.3
+                    MW: 1.31.5
                     EXTENSION: composer
         test-mw-1.32:
             environment:
                 php: 7.2
                 variables:
-                    MW: 1.32.3
+                    MW: 1.32.5
                     EXTENSION: download
         test-mw-1.33:
             environment:
                 php: 7.2
                 variables:
-                    MW: 1.33.0
+                    MW: 1.33.1
                     EXTENSION: download
 
 filter:

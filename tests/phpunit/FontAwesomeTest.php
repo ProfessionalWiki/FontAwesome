@@ -64,7 +64,7 @@ class FontAwesomeTest extends TestCase {
 	/**
 	 * @param callable $hook
 	 */
-	private function checkParserFirstCallInitHook( callable $hook ){
+	private function checkParserFirstCallInitHook( callable $hook ) {
 
 		$GLOBALS[ 'wgFaRenderMode' ] = 'javascript';
 		$parser = $this->createMock( Parser::class );
@@ -75,7 +75,7 @@ class FontAwesomeTest extends TestCase {
 	/**
 	 * @param callable $hook
 	 */
-	private function checkResourceLoaderRegisterModules( callable $hook ){
+	private function checkResourceLoaderRegisterModules( callable $hook ) {
 
 		$GLOBALS[ 'wgFaRenderMode' ] = 'javascript';
 		$rl = $this->createMock( ResourceLoader::class );
