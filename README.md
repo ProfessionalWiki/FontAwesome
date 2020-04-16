@@ -69,6 +69,12 @@ This extension defines three parser functions:
 
 For valid icon names see https://fontawesome.com/icons.
 
+## Professional Support
+
+Chameleon is maintined by [Professional.Wiki](https://professional.wiki).
+You can [contract us][contact-form] to help you with installation or customization of Chameleon.
+We also do development work.
+
 ## License
 
 [GNU General Public License, Version 3][license] or later.
@@ -82,3 +88,4 @@ The Font Awesome Free package is included in the extension. See its
 [mw-scss]: https://github.com/cmln/mw-scss
 [font-awesome]: https://fontawesome.com/
 [composer]: https://getcomposer.org/
+[contact-form]: https://professional.wiki/en/contact
