@@ -71,8 +71,8 @@ For valid icon names see https://fontawesome.com/icons.
 
 ## Professional Support
 
-Chameleon is maintined by [Professional.Wiki](https://professional.wiki).
-You can [contract us][contact-form] to help you with installation or customization of Chameleon.
+The FontAwesome extension is maintined by [Professional.Wiki](https://professional.wiki).
+You can [contract us][contact-form] to help you with installation or customization of FontAwesome.
 We also do development work.
 
 ## License
