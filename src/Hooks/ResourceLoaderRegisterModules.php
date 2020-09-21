@@ -75,6 +75,7 @@ class ResourceLoaderRegisterModules extends Hook {
 		foreach ( $modules as $name => $module ) {
 			$modules[ $name ][ 'localBasePath' ] = $localBasePath;
 			$modules[ $name ][ 'remoteBasePath' ] = $remoteBasePath;
+			$modules[ $name ][ 'targets' ] = ['mobile', 'desktop'];
 		}
 
 		/** @var \ResourceLoader $rl */
