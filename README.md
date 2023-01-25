@@ -22,7 +22,7 @@ Using [Composer][composer] is the recommended way to install this extension.
 
 Run the following commands from the MediaWiki installation directory:
 
-1. `COMPOSER=composer.local.json php composer.phar require --no-update mediawiki/font-awesome ^1.0`
+1. `COMPOSER=composer.local.json php composer.phar require --no-update mediawiki/font-awesome ^1.1`
 2. `php composer.phar update --no-dev mediawiki/font-awesome`
 
 To update the extension run the last command again.
@@ -67,11 +67,11 @@ This extension defines three parser functions:
 **Example:**
 `{{#fab:wikipedia-w}}` will insert the Wikipedia-W
 
-For valid icon names see https://fontawesome.com/icons.
+For valid icon names see https://fontawesome.com/v5/search.
 
 ## Professional Support
 
-The FontAwesome extension is maintained by [Professional.Wiki](https://professional.wiki).
+The FontAwesome extension is maintained by [Professional Wiki](https://professional.wiki).
 You can [contract us][contact-form] to help you with installation or customization of FontAwesome.
 We also do development work.
 
@@ -85,7 +85,6 @@ The Font Awesome Free package is included in the extension. See its
 [license]: https://www.gnu.org/copyleft/gpl.html
 [font-awesome-license]: ./res/fontawesome/LICENSE.txt
 [mw-font-awesome]: https://www.mediawiki.org/wiki/Extension:FontAwesome
-[mw-scss]: https://github.com/cmln/mw-scss
 [font-awesome]: https://fontawesome.com/
 [composer]: https://getcomposer.org/
 [contact-form]: https://professional.wiki/en/contact
@@ -94,7 +93,7 @@ The Font Awesome Free package is included in the extension. See its
 
 ### Version 1.1.0
 
-Under development.
+Released on January 25, 2023.
 
 * Updated FontAwesome to 5.15.4
 
