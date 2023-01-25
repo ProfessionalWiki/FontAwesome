@@ -1,6 +1,6 @@
 # FontAwesome
 
-[![Build Status](https://scrutinizer-ci.com/g/ProfessionalWiki/FontAwesome/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ProfessionalWiki/FontAwesome/build-status/master)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ProfessionalWiki/FontAwesome/ci.yml?branch=master)](https://github.com/ProfessionalWiki/FontAwesome/actions?query=workflow%3ACI)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/font-awesome/v/stable)](https://packagist.org/packages/mediawiki/font-awesome)
 [![Packagist download count](https://poser.pugx.org/mediawiki/font-awesome/downloads)](https://packagist.org/packages/mediawiki/font-awesome)
 
