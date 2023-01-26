@@ -29,9 +29,9 @@ To update the extension run the last command again.
 
 ### Using a download from GitHub
 
-1. Download a tar ball or zip file from [GitHub](https://github.com/cmln/mw-font-awesome/releases/latest)
+1. Download a tar ball or zip file from [GitHub](https://github.com/ProfessionalWiki/FontAwesome/releases/latest)
 2. Extract it into the `extensions` directory of your MediaWiki installation
-3. Rename the folder `mw-font-awesome-...` to `FontAwesome`
+3. Rename the folder `FontAwesome-...` to `FontAwesome`
 
 To update the extension delete the `FontAwesome` folder completely and re-install.
 
