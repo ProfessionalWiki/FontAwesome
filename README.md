@@ -7,7 +7,7 @@
 The [FontAwesome][mw-font-awesome] extension to MediaWiki provides parser
 functions to insert [Font Awesome Free][font-awesome] icons into the wiki text.
 
-Currently Font Awesome Free, version 5.15.4 is included.
+Currently Font Awesome Free, version 6.2.1 is included.
 
 ## Requirements
 
@@ -67,7 +67,7 @@ This extension defines three parser functions:
 **Example:**
 `{{#fab:wikipedia-w}}` will insert the Wikipedia-W
 
-For valid icon names see https://fontawesome.com/v5/search.
+For valid icon names see https://fontawesome.com/v6/search.
 
 ## Professional Support
 
@@ -97,6 +97,7 @@ Under development.
 
 * Raised minimum PHP version from 7.0 to 7.4.3
 * Raised minimum MediaWiki version from 1.31 to 1.35
+* Updated to FontAwesome 6
 
 ### Version 1.1.0
 
