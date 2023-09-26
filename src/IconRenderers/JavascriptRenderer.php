@@ -63,6 +63,7 @@ class JavascriptRenderer implements IconRenderer {
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
 
 		$this->registerRlModule( $parser );
+		
 		switch (sizeof($args)) {
 			case "1": return Html::element( 'i', [ 	'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
 			case "2": return Html::element( 'i', [ 	'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ,
