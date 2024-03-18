@@ -69,6 +69,33 @@ This extension defines three parser functions:
 
 For valid icon names see https://fontawesome.com/v6/search.
 
+### Styling
+When using rendermode `webfonts` or `javascript`:
+* `{{#far:... ...}}` to insert an icon from the FontAwesome Regular font with additional classes
+* `{{#fas:... ...}}` to insert an icon from the FontAwesome Solid font with additional classes
+* `{{#fab:... ...}}` to insert an icon from the FontAwesome Brands font with additional classes
+
+**Example:**
+`{{#fab:wikipedia-w fa-spin}}` will insert a spinning Wikipedia-W
+
+For valid Font Awesome class names see https://docs.fontawesome.com/web/style/styling.
+
+* `{{#far:...|...}}` to insert an icon from the FontAwesome Regular font with additional style
+* `{{#fas:...|...}}` to insert an icon from the FontAwesome Solid font with additional style
+* `{{#fab:...|...}}` to insert an icon from the FontAwesome Brands font with additional style
+
+**Example:**
+`{{#fab:wikipedia-w |color:red }}`  will insert a red Wikipedia-W
+
+When using rendermode `javascript`:
+* `{{#far:...|...|...}}` to insert an icon from the FontAwesome Regular font with Power Transforms
+* `{{#fas:...|...|...}}` to insert an icon from the FontAwesome Solid font with Power Transforms
+* `{{#fab:...|...|...}}` to insert an icon from the FontAwesome Brands font with Power Transforms
+
+`{{#fab:wikipedia-w| |rotate--30}}` will insert a 30 degrees anti-clockwise rotated Wikipedia-W
+
+For valid Power Transforms see https://docs.fontawesome.com/web/style/power-transform.
+
 ## Professional Support
 
 The FontAwesome extension is maintained by [Professional Wiki](https://professional.wiki).
