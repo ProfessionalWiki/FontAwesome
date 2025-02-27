@@ -7,7 +7,7 @@
 The [FontAwesome][mw-font-awesome] extension to MediaWiki provides parser
 functions to insert [Font Awesome Free][font-awesome] icons into the wiki text.
 
-Currently Font Awesome Free, version 6.2.1 is included.
+Currently Font Awesome Free, version 6.7.2 is included.
 
 ## Requirements
 
