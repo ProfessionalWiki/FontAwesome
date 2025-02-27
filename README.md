@@ -69,6 +69,13 @@ This extension defines three parser functions:
 
 For valid icon names see https://fontawesome.com/v6/search.
 
+* `{{#far:...|...}}` to insert an icon from the FontAwesome Regular font with additional style
+* `{{#fas:...|...}}` to insert an icon from the FontAwesome Solid font with additional style
+* `{{#fab:...|...}}` to insert an icon from the FontAwesome Brands font with additional style
+
+**Example:**
+`{{#fab:wikipedia-w|color:red; background-color: green; }}`  will insert a red Wikipedia-W on a green background
+
 ## Professional Support
 
 The FontAwesome extension is maintained by [Professional Wiki](https://professional.wiki).
