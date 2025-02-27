@@ -91,6 +91,12 @@ The Font Awesome Free package is included in the extension. See its
 
 ## Release notes
 
+### Version 2.1.0
+
+Under development.
+
+* Updated FontAwesome to 6.7.2
+
 ### Version 2.0.0
 
 Released on January 27, 2023.
