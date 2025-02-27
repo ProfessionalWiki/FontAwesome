@@ -69,6 +69,16 @@ This extension defines three parser functions:
 
 For valid icon names see https://fontawesome.com/v6/search.
 
+### Styling
+* `{{#far:... ...}}` to insert an icon from the FontAwesome Regular font with additional classes
+* `{{#fas:... ...}}` to insert an icon from the FontAwesome Solid font with additional classes
+* `{{#fab:... ...}}` to insert an icon from the FontAwesome Brands font with additional classes
+
+**Example:**
+`{{#fab:wikipedia-w fa-spin}}` will insert a spinning Wikipedia-W
+
+For valid Font Awesome class names see https://docs.fontawesome.com/web/style/styling.
+
 ## Professional Support
 
 The FontAwesome extension is maintained by [Professional Wiki](https://professional.wiki).
