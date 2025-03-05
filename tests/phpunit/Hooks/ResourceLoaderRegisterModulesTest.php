@@ -26,12 +26,11 @@ declare(strict_types=1);
 
 namespace FontAwesome\Tests;
 
-use FontAwesome\Hooks\ParserFirstCallInit;
 use FontAwesome\Hooks\ResourceLoaderRegisterModules;
 use HashConfig;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use MWException;
 use PHPUnit\Framework\TestCase;
-use ResourceLoader;
 
 /**
  * @uses \FontAwesome\Hooks\ResourceLoaderRegisterModules

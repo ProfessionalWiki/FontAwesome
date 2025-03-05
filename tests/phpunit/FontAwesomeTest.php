@@ -27,9 +27,9 @@ declare(strict_types=1);
 namespace FontAwesome\Tests;
 
 use FontAwesome\FontAwesome;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use Parser;
 use PHPUnit\Framework\TestCase;
-use ResourceLoader;
 
 /**
  * @uses \FontAwesome\FontAwesome
