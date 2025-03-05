@@ -10,7 +10,7 @@
 	"descriptionmsg": "fontawesome-desc",
 	"license-name": "GPL-3.0-or-later",
 	"requires": {
-		"MediaWiki": ">=1.35"
+		"MediaWiki": ">=1.39"
 	},
 	"MessagesDirs": {
 		"FontAwesome": "i18n"
