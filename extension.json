@@ -16,7 +16,7 @@
 		"FontAwesome": "i18n"
 	},
 	"ExtensionMessagesFiles": {
-		"FontAwesomeMagic": "src/FontAwesome.magic.php"
+		"FontAwesomeMagic": "FontAwesome.magic.php"
 	},
 	"AutoloadNamespaces": {
 		"FontAwesome\\": "src/"
