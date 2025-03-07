@@ -42,12 +42,15 @@ class ResourceLoaderHooks implements ResourceLoaderRegisterModulesHook {
 		],
 	];
 
+	private Config $coreConfig;
+
 	private Config $config;
 
 	public function __construct(
-		private readonly Config $coreConfig,
+		Config $coreConfig,
 		ConfigFactory $configFactory
 	) {
+		$this->coreConfig = $coreConfig;
 		$this->config = $configFactory->makeConfig( 'fontawesome' );
 	}
 

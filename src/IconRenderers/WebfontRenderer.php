@@ -40,13 +40,16 @@ class WebfontRenderer implements IconRenderer {
 
 	private bool $isModuleRegistered = false;
 
-	/**
-	 * IconRenderer constructor.
-	 */
+	private string $magicWord;
+
+	private string $fontClass;
+
 	public function __construct(
-		private readonly string $magicWord,
-		private readonly string $fontClass
+		string $magicWord,
+		string $fontClass
 	) {
+		$this->magicWord = $magicWord;
+		$this->fontClass = $fontClass;
 	}
 
 	/**
