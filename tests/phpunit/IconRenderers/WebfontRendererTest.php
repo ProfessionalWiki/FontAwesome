@@ -47,7 +47,7 @@ class WebfontRendererTest extends TestCase {
 
 	public function testCanConstruct() {
 
-		$renderer = new WebfontRenderer( 'foo' );
+		$renderer = new WebfontRenderer( 'foo', 'foobar' );
 
 		static::assertInstanceOf(
 			WebfontRenderer::class,
@@ -62,11 +62,12 @@ class WebfontRendererTest extends TestCase {
 
 	public function testRender() {
 
-		$fontClass = 'foo';
+		$magicWord = 'foo';
+		$fontClass = 'foobar';
 		$icon1 = 'bar';
 		$icon2 = 'baz';
 
-		$modules = [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $fontClass ];
+		$modules = [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $magicWord ];
 
 		$output = $this->createMock( ParserOutput::class );
 		$output->expects( static::once() )
@@ -81,7 +82,7 @@ class WebfontRendererTest extends TestCase {
 		$frame->method( 'expand' )
 			->will( static::returnArgument( 0 ) );
 
-		$renderer = new WebfontRenderer( $fontClass );
+		$renderer = new WebfontRenderer( $magicWord, $fontClass );
 
 		$expected = Html::element( 'i', [ 'class' => [ $fontClass, "fa-$icon1" ] ] );
 		$observed = $renderer->render( $parser, $frame, [ $icon1 ] );

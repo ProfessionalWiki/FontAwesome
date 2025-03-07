@@ -38,19 +38,15 @@ use PPFrame;
  */
 class JavascriptRenderer implements IconRenderer {
 
-	private $fontClass;
-	private $useScripts;
-
 	private $isModuleRegistered = false;
 
 	/**
 	 * IconRenderer constructor.
-	 *
-	 * @param string $fontClass
 	 */
-	public function __construct( string $fontClass ) {
-		$this->fontClass = $fontClass;
-		$this->useScripts = true;
+	public function __construct(
+		private readonly string $magicWord,
+		private readonly string $fontClass
+	) {
 	}
 
 	/**
@@ -67,10 +63,7 @@ class JavascriptRenderer implements IconRenderer {
 		return Html::element( 'i', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
 	}
 
-	/**
-	 * @param Parser $parser
-	 */
-	private function registerRlModule( Parser $parser ) {
+	private function registerRlModule( Parser $parser ): void {
 
 		if ( $this->isModuleRegistered ) {
 			return;
@@ -84,7 +77,7 @@ class JavascriptRenderer implements IconRenderer {
 	 * @return string[]
 	 */
 	private function getFontModules(): array {
-		return [ 'ext.fontawesome.' . $this->fontClass ];
+		return [ 'ext.fontawesome.' . $this->magicWord ];
 	}
 
 }

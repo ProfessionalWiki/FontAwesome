@@ -21,12 +21,33 @@
 	"AutoloadNamespaces": {
 		"FontAwesome\\": "src/"
 	},
+	"Hooks": {
+		"ParserFirstCallInit": "parser",
+		"ResourceLoaderRegisterModules": "resourceLoader"
+	},
+	"HookHandlers": {
+		"parser": {
+			"class": "FontAwesome\\Hooks\\ParserHooks",
+			"services": [
+				"ConfigFactory"
+			]
+		},
+		"resourceLoader": {
+			"class": "FontAwesome\\Hooks\\ResourceLoaderHooks",
+			"services": [
+				"MainConfig",
+				"ConfigFactory"
+			]
+		}
+	},
 	"config": {
 		"FaRenderMode": {
 			"value": "webfonts",
 			"description": "How should icons be rendered? (see https://fontawesome.com/how-to-use/on-the-web/other-topics/performance)"
 		}
 	},
-	"callback": "\\FontAwesome\\FontAwesome::init",
+	"ConfigRegistry": {
+		"fontawesome": "GlobalVarConfig::newInstance"
+	},
 	"manifest_version": 2
 }

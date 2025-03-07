@@ -47,7 +47,7 @@ class JavascriptRendererTest extends TestCase {
 
 	public function testCanConstruct() {
 
-		$renderer = new JavascriptRenderer( 'foo' );
+		$renderer = new JavascriptRenderer( 'foo', 'foobar' );
 
 		static::assertInstanceOf(
 			JavascriptRenderer::class,
@@ -62,11 +62,12 @@ class JavascriptRendererTest extends TestCase {
 
 	public function testRender() {
 
-		$fontClass = 'foo';
+		$magicWord = 'foo';
+		$fontClass = 'foobar';
 		$icon1 = 'bar';
 		$icon2 = 'baz';
 
-		$modules = [ 'ext.fontawesome.' . $fontClass ];
+		$modules = [ 'ext.fontawesome.' . $magicWord ];
 
 		$output = $this->createMock( ParserOutput::class );
 		$output->expects( static::once() )
@@ -81,7 +82,7 @@ class JavascriptRendererTest extends TestCase {
 		$frame->method( 'expand' )
 			->will( static::returnArgument( 0 ) );
 
-		$renderer = new JavascriptRenderer( $fontClass );
+		$renderer = new JavascriptRenderer( $magicWord, $fontClass );
 
 		$expected = Html::element( 'i', [ 'class' => [ $fontClass, "fa-$icon1" ] ] );
 		$observed = $renderer->render( $parser, $frame, [ $icon1 ] );

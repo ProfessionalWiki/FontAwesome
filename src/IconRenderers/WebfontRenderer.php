@@ -38,18 +38,15 @@ use PPFrame;
  */
 class WebfontRenderer implements IconRenderer {
 
-	private $fontClass;
-
 	private $isModuleRegistered = false;
 
 	/**
 	 * IconRenderer constructor.
-	 *
-	 * @param string $fontClass
-	 * @param string $fontModule
 	 */
-	public function __construct( string $fontClass ) {
-		$this->fontClass = $fontClass;
+	public function __construct(
+		private readonly string $magicWord,
+		private readonly string $fontClass
+	) {
 	}
 
 	/**
@@ -84,7 +81,7 @@ class WebfontRenderer implements IconRenderer {
 	 * @return string[]
 	 */
 	private function getFontModules(): array {
-		return [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $this->fontClass ];
+		return [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $this->magicWord ];
 	}
 
 }
