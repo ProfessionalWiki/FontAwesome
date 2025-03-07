@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 /**
  * File containing the JavascriptRendererTest class
  *
@@ -35,6 +35,8 @@ use PHPUnit\Framework\TestCase;
 use PPFrame;
 
 /**
+ * @covers \FontAwesome\IconRenderers\JavascriptRenderer
+ *
  * @uses \FontAwesome\IconRenderers\JavascriptRenderer
  *
  * @ingroup Test
@@ -46,7 +48,6 @@ use PPFrame;
 class JavascriptRendererTest extends TestCase {
 
 	public function testCanConstruct() {
-
 		$renderer = new JavascriptRenderer( 'foo', 'foobar' );
 
 		static::assertInstanceOf(
@@ -61,7 +62,6 @@ class JavascriptRendererTest extends TestCase {
 	}
 
 	public function testRender() {
-
 		$magicWord = 'foo';
 		$fontClass = 'foobar';
 		$icon1 = 'bar';
@@ -93,7 +93,5 @@ class JavascriptRendererTest extends TestCase {
 		$observed = $renderer->render( $parser, $frame, [ $icon2 ] );
 
 		static::assertEquals( $expected, $observed );
-
-
 	}
 }

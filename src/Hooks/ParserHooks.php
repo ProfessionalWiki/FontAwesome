@@ -22,7 +22,10 @@ use Parser;
 
 class ParserHooks implements ParserFirstCallInitHook {
 
-	// TODO: Move to a class that handles the mapping of magic words to classes
+	/**
+	 * @var array<string, string>
+	 * @todo Move to a class that handles the mapping of magic words to classes
+	 */
 	private static array $magicWordsClassMap = [
 		/**
 		 * Family: Classic
@@ -61,7 +64,12 @@ class ParserHooks implements ParserFirstCallInitHook {
 		}
 	}
 
-	private function registerIconRenderer( string $magicWord, string $fontClass, string $rendererClass, Parser $parser ) {
+	private function registerIconRenderer(
+		string $magicWord,
+		string $fontClass,
+		string $rendererClass,
+		Parser $parser
+	): void {
 		$renderer = new $rendererClass( $magicWord, $fontClass );
 		$parser->setFunctionHook( $magicWord, [ $renderer, 'render' ], Parser::SFH_OBJECT_ARGS );
 	}

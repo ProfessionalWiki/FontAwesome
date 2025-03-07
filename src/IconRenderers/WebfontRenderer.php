@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 /**
  * File containing the WebfontRenderer class
  *
@@ -38,7 +38,7 @@ use PPFrame;
  */
 class WebfontRenderer implements IconRenderer {
 
-	private $isModuleRegistered = false;
+	private bool $isModuleRegistered = false;
 
 	/**
 	 * IconRenderer constructor.
@@ -57,7 +57,6 @@ class WebfontRenderer implements IconRenderer {
 	 * @return string
 	 */
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
-
 		$this->registerRlModule( $parser );
 
 		return Html::element( 'i', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
@@ -67,7 +66,6 @@ class WebfontRenderer implements IconRenderer {
 	 * @param Parser $parser
 	 */
 	private function registerRlModule( Parser $parser ) {
-
 		if ( $this->isModuleRegistered ) {
 			return;
 		}

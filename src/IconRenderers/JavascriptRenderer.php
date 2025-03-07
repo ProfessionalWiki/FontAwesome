@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 /**
  * File containing the JavascriptRenderer class
  *
@@ -38,7 +38,7 @@ use PPFrame;
  */
 class JavascriptRenderer implements IconRenderer {
 
-	private $isModuleRegistered = false;
+	private bool $isModuleRegistered = false;
 
 	/**
 	 * IconRenderer constructor.
@@ -57,14 +57,12 @@ class JavascriptRenderer implements IconRenderer {
 	 * @return string
 	 */
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
-
 		$this->registerRlModule( $parser );
 
 		return Html::element( 'i', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
 	}
 
 	private function registerRlModule( Parser $parser ): void {
-
 		if ( $this->isModuleRegistered ) {
 			return;
 		}

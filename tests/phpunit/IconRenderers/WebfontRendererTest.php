@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 /**
  * File containing the WebfontRendererTest class
  *
@@ -7,12 +7,12 @@ declare(strict_types=1);
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
  *
  * This file is part of the MediaWiki extension Bootstrap.
- * The Bootstrap extension is free software: you can redistribute it and/or
+ * The FontAwesome extension is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Bootstrap extension is distributed in the hope that it will be useful,
+ * The FontAwesome extension is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -35,6 +35,8 @@ use PHPUnit\Framework\TestCase;
 use PPFrame;
 
 /**
+ * @covers \FontAwesome\IconRenderers\WebfontRenderer
+ *
  * @uses \FontAwesome\IconRenderers\WebfontRenderer
  *
  * @ingroup Test
@@ -42,11 +44,11 @@ use PPFrame;
  *
  * @group extensions-font-awesome
  * @group mediawiki-databaseless
+ *
  */
 class WebfontRendererTest extends TestCase {
 
 	public function testCanConstruct() {
-
 		$renderer = new WebfontRenderer( 'foo', 'foobar' );
 
 		static::assertInstanceOf(
@@ -61,7 +63,6 @@ class WebfontRendererTest extends TestCase {
 	}
 
 	public function testRender() {
-
 		$magicWord = 'foo';
 		$fontClass = 'foobar';
 		$icon1 = 'bar';
@@ -93,7 +94,5 @@ class WebfontRendererTest extends TestCase {
 		$observed = $renderer->render( $parser, $frame, [ $icon2 ] );
 
 		static::assertEquals( $expected, $observed );
-
-
 	}
 }
