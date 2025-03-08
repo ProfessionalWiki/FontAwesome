@@ -1,18 +1,18 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 /**
  * File containing the WebfontRendererTest class
  *
  * @copyright 2019, Stephan Gambke
- * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
+ * @license   GPL-3.0-or-later
  *
- * This file is part of the MediaWiki extension Bootstrap.
- * The Bootstrap extension is free software: you can redistribute it and/or
+ * This file is part of the MediaWiki extension FontAwesome.
+ * The FontAwesome extension is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Bootstrap extension is distributed in the hope that it will be useful,
+ * The FontAwesome extension is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -35,6 +35,8 @@ use PHPUnit\Framework\TestCase;
 use PPFrame;
 
 /**
+ * @covers \FontAwesome\IconRenderers\WebfontRenderer
+ *
  * @uses \FontAwesome\IconRenderers\WebfontRenderer
  *
  * @ingroup Test
@@ -42,12 +44,12 @@ use PPFrame;
  *
  * @group extensions-font-awesome
  * @group mediawiki-databaseless
+ *
  */
 class WebfontRendererTest extends TestCase {
 
 	public function testCanConstruct() {
-
-		$renderer = new WebfontRenderer( 'foo' );
+		$renderer = new WebfontRenderer( 'foo', 'foobar' );
 
 		static::assertInstanceOf(
 			WebfontRenderer::class,
@@ -61,12 +63,12 @@ class WebfontRendererTest extends TestCase {
 	}
 
 	public function testRender() {
-
-		$fontClass = 'foo';
+		$magicWord = 'foo';
+		$fontClass = 'foobar';
 		$icon1 = 'bar';
 		$icon2 = 'baz';
 
-		$modules = [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $fontClass ];
+		$modules = [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $magicWord ];
 
 		$output = $this->createMock( ParserOutput::class );
 		$output->expects( static::once() )
@@ -81,7 +83,7 @@ class WebfontRendererTest extends TestCase {
 		$frame->method( 'expand' )
 			->will( static::returnArgument( 0 ) );
 
-		$renderer = new WebfontRenderer( $fontClass );
+		$renderer = new WebfontRenderer( $magicWord, $fontClass );
 
 		$expected = Html::element( 'i', [ 'class' => [ $fontClass, "fa-$icon1" ] ] );
 		$observed = $renderer->render( $parser, $frame, [ $icon1 ] );
@@ -92,7 +94,5 @@ class WebfontRendererTest extends TestCase {
 		$observed = $renderer->render( $parser, $frame, [ $icon2 ] );
 
 		static::assertEquals( $expected, $observed );
-
-
 	}
 }

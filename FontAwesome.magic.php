@@ -1,7 +1,7 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 /**
- * File containing the Hook class
+ * Aliases for the FontAwesome extension
  *
  * @copyright 2019, Stephan Gambke
  * @license   https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 (or later)
@@ -24,48 +24,11 @@ declare(strict_types=1);
  * @ingroup FontAwesome
  */
 
-namespace FontAwesome\Hooks;
+$magicWords = [];
 
-
-use Config;
-
-/**
- * @ingroup FontAwesome
- */
-abstract class Hook {
-
-	protected $configuration;
-	protected $params;
-
-	/**
-	 * ResourceLoaderRegisterModules constructor.
-	 *
-	 * @param Config $configuration
-	 * @param array $params
-	 */
-	final public function __construct( Config $configuration, ...$params ) {
-		$this->configuration = $configuration;
-		$this->params = $params;
-	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function process(): bool;
-
-	/**
-	 * @param $key
-	 * @return mixed
-	 */
-	protected function getConfigParam( $key ) {
-		return $this->configuration->get( $key );
-	}
-
-	/**
-	 * @param int $index
-	 * @return mixed
-	 */
-	protected function getHookParam( int $index ) {
-		return $this->params[ $index ];
-	}
-}
+/** English (English) */
+$magicWords[ 'en' ] = [
+	'far' => [ 0, 'far' ],
+	'fas' => [ 0, 'fas' ],
+	'fab' => [ 0, 'fab' ],
+];
