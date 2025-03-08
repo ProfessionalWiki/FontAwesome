@@ -82,10 +82,7 @@ class WebfontRenderer implements IconRenderer {
 	 * @return string[]
 	 */
 	private function getFontModules(): array {
-		return [
-			'ext.fontawesome',
-			'ext.fontawesome.' . $this->magicWord
-		];
+		return [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $this->magicWord ];
 	}
 
 }
