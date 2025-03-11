@@ -12,7 +12,7 @@ Currently Font Awesome Free, version 6.7.2 is included.
 ## Requirements
 
 - PHP 7.4.3 or later
-- MediaWiki 1.35 or later
+- MediaWiki 1.39 or later
 
 ## Installation
 
@@ -101,10 +101,11 @@ The Font Awesome Free package is included in the extension. See its
 
 ## Release notes
 
-### Version 2.1.0
+### Version 3.0.0
 
 Under development.
 
+* Raised minimum MediaWiki version from 1.35 to 1.39
 * Updated FontAwesome to 6.7.2
 
 ### Version 2.0.0
