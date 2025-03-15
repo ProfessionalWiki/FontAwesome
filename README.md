@@ -7,7 +7,7 @@
 The [FontAwesome][mw-font-awesome] extension to MediaWiki provides parser
 functions to insert [Font Awesome Free][font-awesome] icons into the wiki text.
 
-Currently Font Awesome Free, version 6.7.2 is included.
+Currently Font Awesome Free version 6.7.2 is included.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Run the following commands from the MediaWiki installation directory:
 1. `COMPOSER=composer.local.json php composer.phar require --no-update mediawiki/font-awesome ^2.0`
 2. `php composer.phar update --no-dev mediawiki/font-awesome`
 
-To update the extension run the last command again.
+To update the extension, run the last command again.
 
 ### Using a download from GitHub
 
@@ -103,17 +103,17 @@ The Font Awesome Free package is included in the extension. See its
 
 ### Version 3.0.0
 
-Under development.
+Released on March 15, 2025.
 
-* Raised minimum MediaWiki version from 1.35 to 1.39
+* Raised the minimum MediaWiki version from 1.35 to 1.39
 * Updated FontAwesome to 6.7.2
 
 ### Version 2.0.0
 
 Released on January 27, 2023.
 
-* Raised minimum PHP version from 7.0 to 7.4.3
-* Raised minimum MediaWiki version from 1.31 to 1.35
+* Raised the minimum PHP version from 7.0 to 7.4.3
+* Raised the minimum MediaWiki version from 1.31 to 1.35
 * Updated to FontAwesome 6
 
 ### Version 1.1.0
