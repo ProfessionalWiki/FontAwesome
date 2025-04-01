@@ -60,7 +60,6 @@ class WebfontRenderer implements IconRenderer {
 	 * @return string
 	 */
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
-
 		$this->registerRlModule( $parser );
 		switch (count($args)) {
 			case "1":
