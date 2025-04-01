@@ -58,7 +58,7 @@ For a discussion of the advantages and drawbacks of the render modes see
 on fontawesome.com.
 
 ## Usage
-### Styling
+
 This extension defines three parser functions:
 * `{{#far:...}}` to insert an icon from the FontAwesome Regular font
 * `{{#fas:...}}` to insert an icon from the FontAwesome Solid font
@@ -68,6 +68,8 @@ This extension defines three parser functions:
 `{{#fab:wikipedia-w}}` will insert the Wikipedia-W
 
 For valid icon names see https://fontawesome.com/v6/search.
+
+### Styling
 
 * `{{#far:... ...}}` to insert an icon from the FontAwesome Regular font with additional classes
 * `{{#fas:... ...}}` to insert an icon from the FontAwesome Solid font with additional classes
