@@ -67,7 +67,7 @@ class WebfontRenderer implements IconRenderer {
 				return Html::element( 'i', ['class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
 			default:
 				return Html::element( 'i', ['class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ],
-						'style' => trim( $frame->expand( $args[ 1 ] ) ) ] );
+							    'style' => trim( $frame->expand( $args[ 1 ] ) ) ] );
 		}
 	}
 
