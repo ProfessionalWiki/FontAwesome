@@ -5,7 +5,9 @@
 	"keywords": [
 		"wiki",
 		"MediaWiki",
-		"extension"
+		"extension",
+		"FontAwesome",
+		"icons"
 	],
 	"homepage": "https://www.mediawiki.org/wiki/Extension:FontAwesome",
 	"readme": "README.md",
@@ -27,21 +29,22 @@
 		"wiki": "https://www.mediawiki.org/wiki/Extension:FontAwesome",
 		"forum": "https://www.mediawiki.org/wiki/Extension_talk:FontAwesome",
 		"source": "https://github.com/ProfessionalWiki/FontAwesome",
-		"issues": "https://github.com/ProfessionalWiki/FontAwesome/issues",
-		"irc": "irc://libera.chat:6667/mediawiki"
+		"issues": "https://github.com/ProfessionalWiki/FontAwesome/issues"
 	},
 	"require": {
 		"php": ">=7.4.3",
 		"composer/installers": "^2|^1.0.1"
 	},
+	"require-dev": {
+		"mediawiki/mediawiki-codesniffer": "^46.0.0"
+	},
 	"extra": {
-		"branch-alias": {
-			"dev-master": "2.x-dev"
-		}
+		"installer-name": "FontAwesome"
 	},
 	"config": {
 		"allow-plugins": {
-			"composer/installers": true
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	}
 }
