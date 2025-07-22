@@ -11,8 +11,8 @@ Currently Font Awesome Free version 6.7.2 is included.
 
 ## Requirements
 
-- PHP 7.4.3 or later
-- MediaWiki 1.39 or later
+- PHP 8.1.0 or later
+- MediaWiki 1.43 or later
 
 ## Installation
 
@@ -100,6 +100,12 @@ The Font Awesome Free package is included in the extension. See its
 [contact-form]: https://professional.wiki/en/contact
 
 ## Release notes
+
+### Version 4.0.0
+
+Released on July 22, 2025.
+
+* Raised the minimum MediaWiki version from 1.39 to 1.43
 
 ### Version 3.0.0
 

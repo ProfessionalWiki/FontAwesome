@@ -26,7 +26,7 @@ declare( strict_types=1 );
 
 namespace FontAwesome\IconRenderers;
 
-use Html;
+use MediaWiki\Html\Html;
 use Parser;
 use PPFrame;
 

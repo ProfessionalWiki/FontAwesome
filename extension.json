@@ -1,6 +1,6 @@
 {
 	"name": "FontAwesome",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"type": "other",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:F.trott Stephan Gambke]",
@@ -10,7 +10,7 @@
 	"descriptionmsg": "fontawesome-desc",
 	"license-name": "GPL-3.0-or-later",
 	"requires": {
-		"MediaWiki": ">=1.39"
+		"MediaWiki": ">=1.43"
 	},
 	"MessagesDirs": {
 		"FontAwesome": "i18n"

@@ -28,7 +28,7 @@ namespace FontAwesome\Tests;
 
 use FontAwesome\IconRenderers\IconRenderer;
 use FontAwesome\IconRenderers\WebfontRenderer;
-use Html;
+use MediaWiki\Html\Html;
 use Parser;
 use ParserOutput;
 use PHPUnit\Framework\TestCase;
