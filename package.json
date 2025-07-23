@@ -1,11 +1,11 @@
 {
   "scripts": {
     "prebuild": "npm install",
-    "build:fontawesome": "bash -c \"if [ -d res/fontawesome ]; then rm -rf res/fontawesome; fi && mkdir -p res/fontawesome && cp -R node_modules/@fortawesome/fontawesome-free/{css,js,webfonts,LICENSE.txt} res/fontawesome\"",
+    "build:fontawesome": "bash -c \"if [ -d res/fontawesome ]; then rm -rf res/fontawesome; fi && mkdir -p res/fontawesome && cp -R node_modules/@fortawesome/fontawesome-free/{css,js,sccs,webfonts,LICENSE.txt} res/fontawesome\"",
     "build": "npm run build:fontawesome"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6"
+    "@fortawesome/fontawesome-free": "^7"
   },
   "dependencies": {}
 }
