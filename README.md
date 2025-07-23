@@ -103,7 +103,7 @@ The Font Awesome Free package is included in the extension. See its
 
 ### Version 4.0.0
 
-Released on July 22, 2025.
+Not yet released.
 
 * Raised the minimum PHP version from 7.4.3 to 8.1.0
 * Raised the minimum MediaWiki version from 1.39 to 1.43
