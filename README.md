@@ -67,7 +67,7 @@ This extension defines three parser functions:
 **Example:**
 `{{#fab:wikipedia-w}}` will insert the Wikipedia-W
 
-For valid icon names see https://fontawesome.com/v6/search.
+For valid icon names see https://fontawesome.com/v7/search.
 
 ### Styling
 * `{{#far:... ...}}` to insert an icon from the FontAwesome Regular font with additional classes
