@@ -107,6 +107,7 @@ Not yet released.
 
 * Raised the minimum PHP version from 7.4.3 to 8.1.0
 * Raised the minimum MediaWiki version from 1.39 to 1.43
+* Updated FontAwesome to 7.0.0
 
 ### Version 3.0.0
 
