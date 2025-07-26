@@ -70,12 +70,20 @@ This extension defines three parser functions:
 For valid icon names see https://fontawesome.com/v7/search.
 
 ### Styling
+
 * `{{#far:... ...}}` to insert an icon from the FontAwesome Regular font with additional classes
 * `{{#fas:... ...}}` to insert an icon from the FontAwesome Solid font with additional classes
 * `{{#fab:... ...}}` to insert an icon from the FontAwesome Brands font with additional classes
 
 **Example:**
 `{{#fab:wikipedia-w fa-spin}}` will insert a spinning Wikipedia-W
+
+* `{{#far:...|...}}` to insert an icon from the FontAwesome Regular font with additional style
+* `{{#fas:...|...}}` to insert an icon from the FontAwesome Solid font with additional style
+* `{{#fab:...|...}}` to insert an icon from the FontAwesome Brands font with additional style
+
+**Example:**
+`{{#fab:wikipedia-w|color:red; background-color: green; }}`  will insert a red Wikipedia-W on a green background
 
 For valid Font Awesome class names see https://docs.fontawesome.com/web/style/styling.
 
