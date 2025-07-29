@@ -99,7 +99,7 @@ Only SVG with JavaScript render mode.
 For valid Font Awesome Power Transforms see https://docs.fontawesome.com/web/style/power-transform
 
 ### Stacking
-Some HTML code is required for stacking. In MediaWiki code, spaces and new lines do matter.
+Some HTML code is required for stacking. Remember in MediaWiki code, spaces and new lines do matter.
 
 **Example:**
 `<span class="fa-stack fa-2x">{{#fas:camera fa-stack-1x}}{{#fas:ban fa-stack-2x|color:Tomato}}</span>` will insert a no photography sign
@@ -107,7 +107,7 @@ Some HTML code is required for stacking. In MediaWiki code, spaces and new lines
 For further explanation, see https://docs.fontawesome.com/web/style/stack
 
 ### Layering
-Only SVG with JavaScript render mode. Some HTML code is required for stacking. In MediaWiki code, spaces and new lines do matter.
+Only SVG with JavaScript render mode. Some HTML code is required for layering. Remember in MediaWiki code, spaces and new lines do matter.
 
 **Example:**
 `<span class="fa-layers fa-fw">{{#fas:circle|color:Tomato}}{{#fas:times fa-inverse||shrink-6}}</span>` will insert a white X on a red circle.
