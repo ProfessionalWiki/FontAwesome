@@ -37,11 +37,16 @@ use PPFrame;
  * @ingroup FontAwesome
  */
 class WebfontRenderer implements IconRenderer {
-
+	/**
+	 * @var bool Tracks whether the ResourceLoader module has been registered
+	 */
 	private bool $isModuleRegistered = false;
 
 	private string $magicWord;
 
+	/**
+	 * @var string CSS class for the font
+	 */
 	private string $fontClass;
 
 	public function __construct(
@@ -61,8 +66,13 @@ class WebfontRenderer implements IconRenderer {
 	 */
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
 		$this->registerRlModule( $parser );
-
-		return Html::element( 'i', [ 'class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
+			switch (count($args)) {
+				case 1:
+					return Html::element( 'i', ['class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
+				default:
+					return Html::element( 'i', ['class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ],
+							     										'style' => trim( $frame->expand( $args[ 1 ] ) ) ] );
+			}
 	}
 
 	/**
