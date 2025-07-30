@@ -1,6 +1,6 @@
 <?php
 declare( strict_types=1 );
-/*
+/**
  * File containing the WebfontRenderer class
  *
  * @copyright 2019, Stephan Gambke
@@ -33,90 +33,66 @@ use PPFrame;
 /**
  * Class WebfontRenderer
  *
- * @since   1.0
+ * @since 1.0
  * @ingroup FontAwesome
  */
-class WebfontRenderer implements IconRenderer
-{
+class WebfontRenderer implements IconRenderer {
+	/**
+	 * @var bool Tracks whether the ResourceLoader module has been registered
+	 */
+	private bool $isModuleRegistered = false;
 
-    /**
-     * @var boolean Tracks whether the ResourceLoader module has been registered
-     */
-    private bool $isModuleRegistered = false;
+	private string $magicWord;
 
-    private string $magicWord;
+	/**
+	 * @var string CSS class for the font
+	 */
+	private string $fontClass;
 
-    /**
-     * @var string CSS class for the font
-     */
-    private string $fontClass;
+	public function __construct(
+		string $magicWord,
+		string $fontClass
+	) {
+		$this->magicWord = $magicWord;
+		$this->fontClass = $fontClass;
+	}
 
+	/**
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param string[] $args
+	 *
+	 * @return string
+	 */
+	public function render( Parser $parser, PPFrame $frame, array $args ): string {
+		$this->registerRlModule( $parser );
+		switch (count($args)) {
+			case 1:
+					return Html::element( 'i', ['class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
+			default:
+					return Html::element( 'i', ['class' => [ $this->fontClass, 'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ],
+						'style' => trim( $frame->expand( $args[ 1 ] ) ) ] );
+		}
+	}
 
-    public function __construct(
-        string $magicWord,
-        string $fontClass
-    ) {
-        $this->magicWord = $magicWord;
-        $this->fontClass = $fontClass;
+	/**
+	 * @param Parser $parser
+	 */
+	private function registerRlModule( Parser $parser ) {
+		if ( $this->isModuleRegistered ) {
+			return;
+		}
 
-    }//end __construct()
+		$this->isModuleRegistered = true;
 
+		$parser->getOutput()->addModuleStyles( $this->getFontModules() );
+	}
 
-    /**
-     * @param Parser   $parser
-     * @param PPFrame  $frame
-     * @param string[] $args
-     *
-     * @return string
-     */
-    public function render(Parser $parser, PPFrame $frame, array $args): string
-    {
-        $this->registerRlModule($parser);
-        switch (count($args)) {
-        case 1:
-            return Html::element('i', ['class' => [ $this->fontClass, 'fa-'.trim($frame->expand($args[0])) ] ]);
-        default:
-            return Html::element(
-                'i',
-                [
-                    'class' => [
-                        $this->fontClass,
-                        'fa-'.trim($frame->expand($args[0])),
-                    ],
-                    'style' => trim($frame->expand($args[1])),
-                ]
-            );
-        }
+	/**
+	 * @return string[]
+	 */
+	private function getFontModules(): array {
+		return [ 'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.' . $this->magicWord ];
+	}
 
-    }//end render()
-
-
-    /**
-     * @param Parser $parser
-     */
-    private function registerRlModule(Parser $parser)
-    {
-        if ($this->isModuleRegistered) {
-            return;
-        }
-
-        $this->isModuleRegistered = true;
-
-        $parser->getOutput()->addModuleStyles($this->getFontModules());
-
-    }//end registerRlModule()
-
-
-    /**
-     * @return string[]
-     */
-    private function getFontModules(): array
-    {
-        return [
-            'ext.fontawesome' => 'ext.fontawesome', 'ext.fontawesome.'.$this->magicWord
-        ];
-
-    }//end getFontModules()
-
-
-}//end class
+}
