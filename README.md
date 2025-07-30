@@ -99,7 +99,7 @@ Only SVG with JavaScript render mode.
 For valid Font Awesome Power Transforms see https://docs.fontawesome.com/web/style/power-transform
 
 ### Stacking
-Some HTML code is required for stacking. Remember in MediaWiki code, spaces and new lines do matter.
+Some HTML code is required for stacking. Remember, in MediaWiki code, spaces and new lines do matter.
 
 **Example:**
 `<span class="fa-stack fa-2x">{{#fas:camera fa-stack-1x}}{{#fas:ban fa-stack-2x|color:Tomato}}</span>` will insert a no photography sign
@@ -107,7 +107,7 @@ Some HTML code is required for stacking. Remember in MediaWiki code, spaces and 
 For further explanation, see https://docs.fontawesome.com/web/style/stack
 
 ### Layering
-Only SVG with JavaScript render mode. Some HTML code is required for layering. Remember in MediaWiki code, spaces and new lines do matter.
+Only SVG with JavaScript render mode. Some HTML code is required for layering. Remember, in MediaWiki code, spaces and new lines do matter.
 
 **Example:**
 `<span class="fa-layers fa-fw">{{#fas:circle|color:Tomato}}{{#fas:times fa-inverse||shrink-6}}</span>` will insert a white X on a red circle.
@@ -115,8 +115,10 @@ Only SVG with JavaScript render mode. Some HTML code is required for layering. R
 For further explanation, see https://docs.fontawesome.com/web/style/layer
 
 **Comprehensive example:**
-`<div class="fa-4x"><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:circle|color:Tomato}}{{#fas:times fa-inverse||shrink-6}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:bookmark}}{{#fas:heart fa-inverse|color:Tomato|shrink-10 up-2}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:play||rotate--90 grow-4}}{{#fas:sun fa-inverse||shrink-10 up-2}}{{#fas:moon fa-inverse||shrink-11 down-4.2 left-4}}{{#fas:star fa-inverse||shrink-11 down-4.2 right-4}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:calendar}}<span class="fa-layers-text fa-inverse" data-fa-transform="shrink-8 down-3" style="font-weight:900">27</span></span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:certificate}}<span class="fa-layers-text fa-inverse" data-fa-transform="shrink-11.5 rotate--30" style="font-weight:900">NEW</span></span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:envelope}}<span class="fa-layers-counter" style="background:Tomato">1,419</span></span></div>`
 Only SVG with JavaScript render mode.
+
+`<div class="fa-4x"><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:circle|color:Tomato}}{{#fas:times fa-inverse||shrink-6}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:bookmark}}{{#fas:heart fa-inverse|color:Tomato|shrink-10 up-2}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:play||rotate--90 grow-4}}{{#fas:sun fa-inverse||shrink-10 up-2}}{{#fas:moon fa-inverse||shrink-11 down-4.2 left-4}}{{#fas:star fa-inverse||shrink-11 down-4.2 right-4}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:calendar}}<span class="fa-layers-text fa-inverse" data-fa-transform="shrink-8 down-3" style="font-weight:900">27</span></span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:certificate}}<span class="fa-layers-text fa-inverse" data-fa-transform="shrink-11.5 rotate--30" style="font-weight:900">NEW</span></span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:envelope}}<span class="fa-layers-counter" style="background:Tomato">1,419</span></span></div>`
+
 
 ## Professional Support
 

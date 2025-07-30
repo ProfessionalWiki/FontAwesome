@@ -79,6 +79,9 @@ class JavascriptRenderer implements IconRenderer {
 			}
 	}
 
+	/**
+	 * @param Parser
+	 */
 	private function registerRlModule( Parser $parser ): void {
 		if ( $this->isModuleRegistered ) {
 			return;
