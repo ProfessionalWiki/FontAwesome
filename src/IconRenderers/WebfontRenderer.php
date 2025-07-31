@@ -66,15 +66,16 @@ class WebfontRenderer implements IconRenderer {
 	 */
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
 		$this->registerRlModule( $parser );
-		switch ( count( $args ) ) {
-			case 1:
-				return Html::element( 'i', [ 'class' => [ $this->fontClass,
-					'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
-			default:
-				return Html::element( 'i', [ 'class' => [ $this->fontClass,
-					'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ],
-					'style' => trim( $frame->expand( $args[ 1 ] ) ) ] );
+		$iconClass = 'fa-' . trim( $frame->expand( $args[0] ) );
+		$attributes = [ 'class' => [ $this->fontClass, $iconClass ] ];
+
+		if ( count( $args ) > 1 ) {
+			$style = trim( $frame->expand( $args[1] ) );
+			// Consider adding HTML sanitization for the style attribute
+			$attributes['style'] = $style;
 		}
+
+		return Html::element( 'i', $attributes );
 	}
 
 	/**

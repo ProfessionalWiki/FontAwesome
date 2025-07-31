@@ -66,20 +66,22 @@ class JavascriptRenderer implements IconRenderer {
 	 */
 	public function render( Parser $parser, PPFrame $frame, array $args ): string {
 		$this->registerRlModule( $parser );
-		switch ( count( $args ) ) {
-			case 1:
-				return Html::element( 'i', [ 'class' => [ $this->fontClass,
-					'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ] ] );
-			case 2:
-				return Html::element( 'i', [ 'class' => [ $this->fontClass,
-					'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ],
-					'style' => trim( $frame->expand( $args[ 1 ] ) ) ] );
-			default:
-				return Html::element( 'i', [ 'class' => [ $this->fontClass,
-					'fa-' . trim( $frame->expand( $args[ 0 ] ) ) ],
-					'style' => trim( $frame->expand( $args[ 1 ] ) ),
-					'data-fa-transform' => trim( $frame->expand( $args[ 2 ] ) ) ] );
+		$iconClass = 'fa-' . trim( $frame->expand( $args[0] ) );
+		$attributes = [ 'class' => [ $this->fontClass, $iconClass ] ];
+
+		if ( count( $args ) > 1 ) {
+			$style = trim( $frame->expand( $args[1] ) );
+			// Consider adding HTML sanitization for the style attribute
+			$attributes['style'] = $style;
 		}
+
+		if ( count( $args ) > 2 ) {
+			$transform = trim( $frame->expand( $args[2] ) );
+			// Consider adding validation for FontAwesome transform syntax
+			$attributes['data-fa-transform'] = $transform;
+		}
+
+		return Html::element( 'i', $attributes );
 	}
 
 	private function registerRlModule( Parser $parser ): void {
