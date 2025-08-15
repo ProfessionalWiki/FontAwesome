@@ -47,7 +47,7 @@
 		}
 	},
 	"ConfigRegistry": {
-		"fontawesome": "GlobalVarConfig::newInstance"
+		"fontawesome": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"manifest_version": 2
 }
