@@ -77,7 +77,48 @@ For valid icon names see https://fontawesome.com/v7/search.
 **Example:**
 `{{#fab:wikipedia-w fa-spin}}` will insert a spinning Wikipedia-W
 
-For valid Font Awesome class names see https://docs.fontawesome.com/web/style/styling.
+* `{{#far:...|...}}` to insert an icon from the FontAwesome Regular font with additional styling
+* `{{#fas:...|...}}` to insert an icon from the FontAwesome Solid font with additional styling
+* `{{#fab:...|...}}` to insert an icon from the FontAwesome Brands font with additional styling
+
+**Example:**
+`{{#fab:wikipedia-w|background:MistyRose;color:Tomato;}}` will insert a red Wikipedia-W on a pink background
+`{{#fab:wikipedia-w fa-rotate-by|--fa-rotate-angle:45deg;}}` will insert a 45 degrees rotated Wikipedia-W
+
+For valid Font Awesome class names and custom properties see https://docs.fontawesome.com/web/style/style-cheatsheet.
+
+### Power Transforms
+Only SVG with JavaScript render mode.
+* `{{#far:...|...|...}}` to insert an icon from the FontAwesome Regular font with Power Transforms
+* `{{#fas:...|...|...}}` to insert an icon from the FontAwesome Solid font with Power Transforms
+* `{{#fab:...|...|...}}` to insert an icon from the FontAwesome Brands font with Power Transforms
+
+**Example:**
+`{{#fab:wikipedia-w||up-6 shrink-8 }}` will insert a scaled-down and shifted-upward Wikipedia-W
+
+For valid Font Awesome Power Transforms see https://docs.fontawesome.com/web/style/power-transform
+
+### Stacking
+Some HTML code is required for stacking. Remember, in MediaWiki code, spaces and new lines do matter.
+
+**Example:**
+`<span class="fa-stack fa-2x">{{#fas:camera fa-stack-1x}}{{#fas:ban fa-stack-2x|color:Tomato}}</span>` will insert a no photography sign
+
+For further explanation, see https://docs.fontawesome.com/web/style/stack
+
+### Layering
+Only SVG with JavaScript render mode. Some HTML code is required for layering. Remember, in MediaWiki code, spaces and new lines do matter.
+
+**Example:**
+`<span class="fa-layers fa-fw">{{#fas:circle|color:Tomato}}{{#fas:times fa-inverse||shrink-6}}</span>` will insert a white X on a red circle.
+
+For further explanation, see https://docs.fontawesome.com/web/style/layer
+
+**Comprehensive example:**
+Only SVG with JavaScript render mode.
+
+`<div class="fa-4x"><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:circle|color:Tomato}}{{#fas:times fa-inverse||shrink-6}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:bookmark}}{{#fas:heart fa-inverse|color:Tomato|shrink-10 up-2}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:play||rotate--90 grow-4}}{{#fas:sun fa-inverse||shrink-10 up-2}}{{#fas:moon fa-inverse||shrink-11 down-4.2 left-4}}{{#fas:star fa-inverse||shrink-11 down-4.2 right-4}}</span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:calendar}}<span class="fa-layers-text fa-inverse" data-fa-transform="shrink-8 down-3" style="font-weight:900">27</span></span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:certificate}}<span class="fa-layers-text fa-inverse" data-fa-transform="shrink-11.5 rotate--30" style="font-weight:900">NEW</span></span><span class="fa-layers fa-fw" style="background:MistyRose">{{#fas:envelope}}<span class="fa-layers-counter" style="background:Tomato">1,419</span></span></div>`
+
 
 ## Professional Support
 
